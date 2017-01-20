@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% load url from future %}
+{% load bootstrap3 %}
+{% load i18n %}
+
+{% block head_title %}اتصل بنا{% endblock %}
+
+{% block top_nav_contact %}active{% endblock %}
+
+{% block content %}
+<style>
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+</style>
+
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+        <h1>اتصل بنا</h1>
+
+        <p>يمكنك التواصل مع فريق دوّن عبر البريد الإلكتروني</p>
+        <p><a href="mailto:info@dwwen.com">info@dwwen.com</a> </p>
+    </div>
+      <div class="col-md-4"></div>
+
+{% endblock %}
+

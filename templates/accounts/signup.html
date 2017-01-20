@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% load url from future %}
+{% load bootstrap3 %}
+{% load i18n %}
+
+{% block head_title %}التسجيل{% endblock %}
+
+{% block top_nav_signup %}active{% endblock %}
+
+{% block content %}
+    <style>
+    body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+
+    </style>
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+        <h1>التسجيل</h1>
+
+        <p>هل لديك حساب في دون؟ الرجاء  <a href="{% url 'auth_login' %}">تسجيل الدخول</a>.</p>
+
+        {% bootstrap_messages %}
+
+        <form id="signup_form" method="post" action="{% url 'signup' %}">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+            {% endif %}
+            <div class="form-actions">
+                <button class="btn btn-primary" type="submit">التسجيل</button>
+            </div>
+        </form>
+    </div>
+      <div class="col-md-4"></div>
+
+{% endblock %}
+

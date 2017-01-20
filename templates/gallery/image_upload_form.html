@@ -1,0 +1,45 @@
+{% load url from future %}
+{% load bootstrap3 %}
+{% load i18n %}
+
+
+<div>
+        {% bootstrap_messages %}
+    <p>اختر صورة لرفعها واضافتها للتدوينة في مكان المؤشر حاليا</p>
+
+        <form id="image-upload-form" method="post" action="{% url 'web-upload-image' %}">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <div class="form-actions">
+                <button class="btn" type="submit">اضافة</button>
+            </div>
+        </form>
+</div>
+
+<script>
+
+$('#image-upload-form').submit(function (e) {
+    $.ajax( {
+      url: '{% url 'web-upload-image' %}',
+      type: 'POST',
+      data: new FormData( this ),
+      processData: false,
+      contentType: false
+    } )
+    .done(function( data ) {
+       if (data.url){
+            chunk = '!['+data.title+']('+data.url+' "'+data.title+'")';
+            selected = editor.getSelection();
+            editor.replaceSelection(chunk);
+            cursor = selected.start;
+            editor.setSelection(cursor,cursor+chunk.length);
+            $('.modal').modal('hide');
+       }
+       else{
+           $(".modal-body").html(data);
+       }
+    });
+    e.preventDefault();
+});
+
+</script>

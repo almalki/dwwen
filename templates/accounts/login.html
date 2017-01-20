@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% load url from future %}
+{% load bootstrap3 %}
+{% load i18n %}
+
+{% block head_title %}دخول{% endblock %}
+
+{% block top_nav_login %}active{% endblock %}
+
+{% block content %}
+<style>
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+</style>
+<form class="form-signin" role="form" action="{%  url 'auth_login' %}" method="post">
+        <h2 class="form-signin-heading">تسجيل الدخول</h2>
+        {% csrf_token %}
+        {% bootstrap_messages %}
+        <p>ليس لديك حساب في دون؟   <a href="{% url 'signup' %}">سجل الآن</a>.</p>
+        {%  bootstrap_form form %}
+        <input type="hidden" name="next" value="{{ next }}" />
+        <button class="btn btn-lg btn-primary btn-block" type="submit">دخول</button>
+      </form>
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'site-base.html' %}
+
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% load future %}
+
+{% block body_content %}
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">دوّن</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+           <li><a href="/">الرئيسية
+            <span class="glyphicon glyphicon-home"></span>
+           </a></li>
+            {% if request.user.is_authenticated %}
+            <li class="{% block top_nav_my_blog %}{% endblock %}"><a href="{% url 'web-blog' username=request.user.username %}">مدونتي
+                <span class="glyphicon glyphicon-th-list"></span>
+            </a></li>
+          {% else %}
+            <li><a href="{% url 'my-blog' %}">مدونتي
+                <span class="glyphicon glyphicon-book"></span>
+            </a></li>
+          {% endif %}
+           <li class="{% block top_nav_blogs %}{% endblock %}"><a href="{% url 'web-blog-list' %}">مدونات
+            <span class="glyphicon glyphicon-th-list"></span>
+           </a></li>
+           <li class="{% block top_nav_contact %}{% endblock %}"><a href="{% url 'contact' %}">اتصل بنا
+            <span class="glyphicon glyphicon-earphone"></span>
+           </a></li>
+
+          {% if not user.is_authenticated %}
+                <li class="{% block top_nav_signup %}{% endblock %}"><a href="{% url 'signup' %}">تسجيل
+                    <span class="glyphicon glyphicon-road"></span>
+                </a></li>
+            {% endif %}
+
+          {% if not user.is_authenticated %}
+                    <li class="{% block top_nav_login %}{% endblock %}"><a href="{% url 'auth_login' %}"> دخول
+                        <span class="glyphicon glyphicon-log-in"></span>
+                    </a></li>
+              {% else %}
+                  <li><a href="{% url 'auth_logout' %}">خروج
+                      <span class="glyphicon glyphicon-off"></span>
+                  </a></li>
+            {% endif %}
+          </ul>
+
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+    <div class="container content">
+
+
+        {% block content %}{% endblock %}
+
+    </div> <!-- /container -->
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% load url from future %}
+{% load bootstrap3 %}
+{% load i18n %}
+{% load thumbnail %}
+
+{% block head_title %}تفاصيل مدونة{% endblock %}
+
+{% block top_nav_blogs %}active{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+        <h1>تفاصيل مدونة</h1>
+
+        {% bootstrap_messages %}
+        <dl class="dl-horizontal">
+          <dt>الاسم</dt>
+          <dd>{{ object.name }}</dd>
+
+           <dt>العنوان</dt>
+          <dd dir="ltr" style="text-align: right">{{ object.blog_url }}</dd>
+
+          <dt>عنوان RSS</dt>
+          <dd dir="ltr" style="text-align: right">{{ object.rss_url }}</dd>
+
+          <dt>الوصف</dt>
+          <dd>{{ object.description }}</dd>
+
+          <dt>الدولة</dt>
+          <dd>{{ object.country.name }}</dd>
+
+          <dt>التصنيف</dt>
+          <dd>
+              {% for cat in object.categories.all %}
+                  {{ cat.name }}
+            {% endfor %}
+          </dd>
+
+          <dt>تاريخ التسجيل</dt>
+          <dd>{{ object.created_date }}</dd>
+
+          <dt>تاريخ اخر تعديل</dt>
+          <dd>{{ object.last_update_date|default_if_none:'-' }}</dd>
+
+          <dt>الصورة</dt>
+          {% if object.image %}
+              {% thumbnail object.image "100x100" crop="center" format="PNG" as im %}
+                <dd><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" /></dd>
+              {% endthumbnail %}
+          {% else %}
+            <dd>-</dd>
+          {% endif %}
+
+        </dl>
+
+    </div>
+      <div class="col-md-2">
+          {% if object.user == request.user %}
+              <a href="{% url 'web-blog-update' object.id %}" class="btn btn-primary">تعديل</a>
+          {% endif %}
+      </div>
+</div>
+{% endblock %}

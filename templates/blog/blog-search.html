@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% load url from future %}
+{% load bootstrap3 %}
+{% load i18n %}
+
+{% block head_title %}البحث عن  مدونة{% endblock %}
+
+{% block top_nav_blogs %}active{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+        <h1>البحث عن  مدونة</h1>
+
+        {% bootstrap_messages %}
+
+        <form id="blog-search-form" method="post" action="{% url 'web-blog-search' %}">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <div class="form-actions">
+                <button class="btn" type="submit">بحث</button>
+            </div>
+        </form>
+    </div>
+      <div class="col-md-4"></div>
+</div>
+
+    <br>
+{% if blogs %}
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+      <table class="table table-hover">
+             <tr>
+                 <th>الاسم</th>
+                 <th>العنوان</th>
+                 <th></th>
+             </tr>
+            {% for blog in blogs %}
+                <tr>
+                    <td><a href="{% url 'web-blog-detail' pk=blog.id %}">{{ blog.name }}</a></td>
+                    <td  dir="ltr" style="text-align: right">{{ blog.blog_url }}</td>
+                    <td>
+                        <form action="{% url 'web-blog-claim' %}" method="post">
+                            <input type="hidden" name="id" value="{{ blog.id }}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary">مطالبة</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+{% endif %}
+
+{% endblock %}

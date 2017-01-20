@@ -1,0 +1,45 @@
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% load future %}
+<!DOCTYPE html>
+<html lang="ar">
+	<head>
+		<meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="twitter:card" content="app">
+        <meta name="twitter:description" content=" تابع جميع المدونات المفضلة لديك في مكان واحد، اكتشف افضل المدونات والتدوينات، تعرف على حديث الساعة بين المدونين. ">
+        <meta name="twitter:app:country" content="SA">
+        <meta name="twitter:app:name:iphone" content="دوّن">
+        <meta name="twitter:app:id:iphone" content="933707771">
+        <meta name="twitter:app:name:ipad" content="دوّن">
+        <meta name="twitter:app:id:ipad" content="933707771">
+        <title>دوّن - {% block head_title %}{% endblock %}</title>
+        {% bootstrap_css %}
+		<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap-rtl.min.css' %}">
+		<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap-markdown.min.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/dwwen.css' %}">
+        {% block custom_css %}{% endblock %}
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-56515314-1', 'auto');
+            ga('require', 'displayfeatures');
+            ga('send', 'pageview');
+        </script>
+	</head>
+	<body role="document">
+    {% block body_content %}{% endblock %}
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		{% bootstrap_javascript %}
+		<script type="text/javascript" src="{% static 'js/bootstrap-markdown.js' %}"></script>
+        <script src="http://toopay.github.io/bootstrap-markdown/js/to-markdown.js"></script>
+        <script src="http://toopay.github.io/bootstrap-markdown/js/markdown.js"></script>
+		<!--<script type="text/javascript" src="{% static 'js/custom.js' %}"></script>-->
+        {% block extra_js %}{% endblock %}
+	</body>
+	</html>

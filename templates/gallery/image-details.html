@@ -1,0 +1,18 @@
+{% load url from future %}
+{% load bootstrap3 %}
+{% load i18n %}
+
+
+<div>
+        <h1>رفع صورة</h1>
+
+        {% bootstrap_messages %}
+        <p>
+        يمكنك استخدام هذا الرابط لاضافة الصورة لتدويناتك
+        <pre dir="ltr" style="text-align: right">{{ image.image.url }}</pre>
+        </p>
+
+    <img class="img-responsive" src="{{ image.image.url }}">
+
+
+</div>

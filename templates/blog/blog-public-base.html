@@ -1,0 +1,40 @@
+{% extends 'site-base.html' %}
+
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% load future %}
+
+{% block body_content %}
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">دوّن</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+          {% if not user.is_authenticated %}
+                    <li class="{% block top_nav_login %}{% endblock %}"><a href="{% url 'auth_login' %}"> دخول
+                        <span class="glyphicon glyphicon-log-in"></span>
+                    </a></li>
+              {% else %}
+                  <li><a href="{% url 'auth_logout' %}">خروج
+                      <span class="glyphicon glyphicon-off"></span>
+                  </a></li>
+            {% endif %}
+          </ul>
+
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+    <div class="container content">
+
+
+        {% block content %}{% endblock %}
+
+    </div> <!-- /container -->
+
+{% endblock %}

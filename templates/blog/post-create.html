@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% load url from future %}
+{% load bootstrap3 %}
+{% load i18n %}
+{% load static %}
+
+{% block head_title %}إنشاء تدوينة{% endblock %}
+
+{% block top_nav_my_blog %}active{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+        <h1>إنشاء تدوينة</h1>
+
+        {% bootstrap_messages %}
+
+        <form id="post-create-form" enctype="multipart/form-data" method="post" action="{% url 'web-post-create' blog.id %}">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <div class="form-actions">
+                <button class="btn" type="submit">ارسل</button>
+            </div>
+        </form>
+    </div>
+      <div class="col-md-2"></div>
+
+    <div class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title">رفع صورة</h4>
+          </div>
+          <div class="modal-body">
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/editor.js' %}"></script>
+<script language="JavaScript">
+$('.modal').on('show.bs.modal', function (e) {
+    $( ".modal-body" ).load( '{% url 'web-upload-image' %}' );
+});
+
+</script>
+{% endblock %}

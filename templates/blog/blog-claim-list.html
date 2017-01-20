@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% load url from future %}
+{% load bootstrap3 %}
+{% load i18n %}
+
+{% block head_title %}البحث عن  مدونة{% endblock %}
+
+{% block top_nav_blogs %}active{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+
+
+{% bootstrap_messages %}
+
+    <h1>هات مدونتي</h1>
+    <p>للمطالبة بمدونتك، الرجاء الضغط على بحث ثم بعد العثور عليها اختر مطالبة</p>
+    <p>
+        للحصول على حق ادارة معلومات مدونة، يجب اولا التحقق من امتلاكك لها. يجب وضع الرمز الخاص بالمطالبة في الصفحة الرئيسية كالتالي:
+        <pre dir="ltr" style="text-align: right">&ltmeta name="dwwen_verification_key" content="key"&gt</pre>
+        بحيث key هو الرمز الموجود امام المدونة في الجدول ادناه.
+        <span class="glyphicon glyphicon-hand-down"></span>
+    </p>
+    <br/>
+    {% if claims %}
+      <table class="table table-hover">
+             <tr>
+                 <th>المدونة</th>
+                 <th>العنوان</th>
+                 <th>رمز التحقق</th>
+                 <th>تم التحقق؟</th>
+                 <th>تاريخ الانتهاء</th>
+             </tr>
+            {% for claim in claims %}
+                <tr>
+                    <td><a href="{% url 'web-blog-detail' pk=claim.blog_obj.id %}">{{ claim.blog_obj.name }}</a></td>
+                    <td  dir="ltr" style="text-align: right">{{ claim.blog_obj.blog_url }}</td>
+                    <td>{{ claim.verification_key }}</td>
+                    <td>
+                        {% if not claim.is_verified %}
+                            <form action="{% url 'web-blog-claim-verify' pk=claim.id %}" method="post">
+                                {% csrf_token %}
+                                <a href="#" onclick="$(this).closest('form').submit()">
+                                    <span class="glyphicon glyphicon-refresh"></span>
+                                </a>
+                            </form>
+                        {% else %}
+                            <span class="glyphicon glyphicon-ok"></span>
+                        {% endif %}
+                    </td>
+                    <td>{{ claim.expire_at }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+  {% endif %}
+  </div>
+  <div class="col-md-1">
+              <a href="{% url 'web-blog-search' %}" class="btn btn-primary">البحث عن مدونتي</a>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,523 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-09-28 16:44+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\api\models.py:26 .\auth\models.py:118
+msgid "Active"
+msgstr "نشط"
+
+#: .\api\models.py:27
+msgid "Gone"
+msgstr "غير موجود"
+
+#: .\api\serializers.py:63 .\auth\forms.py:21 .\auth\models.py:55
+msgid "Required. 15 characters or fewer. Letters, numbers and underscore."
+msgstr "اسم المستخدم يجب ان يتكون من حروف او ارقام او _ وبحد اقصى 15 حرف."
+
+#: .\api\serializers.py:64
+msgid "Username must consists of letters, numbers and underscore only"
+msgstr "اسم المستخدم يجب ان يتكون من حروف او ارقام او _ وبحد اقصى 15 حرف"
+
+#: .\api\serializers.py:67 .\auth\models.py:57
+msgid "Enter a valid username."
+msgstr "ادخل اسم مستخدم مطابق للشروط"
+
+#: .\api\serializers.py:75
+msgid "This username is already taken"
+msgstr "اسم المستخدم هذا محجوز مسبقا"
+
+#: .\api\serializers.py:83
+msgid "This email is already registered with another user"
+msgstr "هذا البريد الالكتروني مسجل لدى مستخدم اخر"
+
+#: .\api\serializers.py:116 .\auth\forms.py:24
+msgid "Email"
+msgstr "البريد الالكتروني"
+
+#: .\api\serializers.py:219
+msgid "This blog already belongs to you."
+msgstr "انت تملك هذه المدونة مسبقا"
+
+#: .\api\serializers.py:233
+msgid "An active claim request is already there."
+msgstr "يوجد مطالبة سابقة لهذه المدونة مازالت نشطة"
+
+#: .\api\views.py:101 .\api\views.py:260 .\rest_framework\generics.py:167
+#, python-format
+msgid "Invalid page (%(page_number)s): %(message)s"
+msgstr ""
+
+#: .\api\views.py:289
+msgid "There is no like to remove"
+msgstr "لا يوجد اعجاب لازالته"
+
+#: .\api\views.py:308
+msgid "There is no favorite to remove"
+msgstr "لا يوجد تفضيل لازالته"
+
+#: .\api\views.py:430
+msgid "new_password is the same as old_password"
+msgstr "كلمة السر الجديدة هي نفسها القديمة"
+
+#: .\api\views.py:435
+#, fuzzy
+msgid "Password changed successfully"
+msgstr "تم انشاء المطالبة بنجاح"
+
+#: .\api\views.py:438
+msgid "Incorrect old password"
+msgstr "كلمة السر القديمة غير صحيحة"
+
+#: .\api\views.py:461
+msgid "Unknown Error"
+msgstr "خطأ غير معروف"
+
+#: .\api\views.py:467
+msgid "You are not allowed to reset password"
+msgstr "لا يمكنك اعادة ضبط كلمة السر. الرجاء الاتصال بنا لحل المشكلة"
+
+#: .\api\views.py:482
+msgid "Dwwen"
+msgstr "دوّن"
+
+#: .\api\views.py:483
+msgid "An email with password reset instructions has been sent."
+msgstr "تم ارسال بريد الكتروني يحتوي على تعليمات اعادة ضبط كلمة السر"
+
+#: .\api\views.py:512
+msgid "This claim request was already verified, create a new one"
+msgstr "هذا الطلب تم التحقق منه مسبقا، قم بإنشاء طلب جديد"
+
+#: .\api\views.py:526
+msgid "Page size is too large"
+msgstr "رقم الصفحة كبيرا جدا"
+
+#: .\api\views.py:530 .\api\views.py:552
+msgid "Blog homepage is unreachable"
+msgstr "لم نتمكن من الوصول للصفحة الرئيسية للمدونة"
+
+#: .\api\views.py:544
+#, fuzzy
+msgid "Blog ownership verified, it is now all yours"
+msgstr "تم عملية التحقق من ملكية المدونة بنجاح"
+
+#: .\api\views.py:546
+msgid "Key found, but invalid"
+msgstr "وجدنا الرمز ولكنه غير صحيح"
+
+#: .\api\views.py:549
+msgid "Missing key, please check the homepage has a meta tag with the key"
+msgstr "لم نجد اي رمز في الصفحة"
+
+#: .\auth\forms.py:15
+msgid "A user with that username already exists."
+msgstr "اسم المستخدم موجود مسبقا"
+
+#: .\auth\forms.py:16
+msgid "A user with that email already exists."
+msgstr "البريد الالكتروني مسجل مسبقا"
+
+#: .\auth\forms.py:17 .\auth\forms.py:113 .\auth\forms.py:159
+msgid "The two password fields didn't match."
+msgstr "حقل تأكيد الرقم السري لا يطابق حقل الرقم السري"
+
+#: .\auth\forms.py:19 .\auth\forms.py:82
+msgid "Username"
+msgstr "اسم المستخدم"
+
+#: .\auth\forms.py:23
+msgid "This value may contain only letters, numbers and underscore."
+msgstr "اسم المستخدم يجب ان يتكون من حروف او ارقام او _ وبحد اقصى 15 حرف"
+
+#: .\auth\forms.py:25 .\auth\forms.py:86 .\auth\forms.py:115
+msgid "Password"
+msgstr "كلمة السر"
+
+#: .\auth\forms.py:27
+msgid "Password confirmation"
+msgstr "تأكيد كلمة السر"
+
+#: .\auth\forms.py:83
+msgid "Required. 15 characters or fewer. Letters, digits and underscore."
+msgstr "اسم المستخدم يجب ان يتكون من حروف او ارقام او _ وبحد اقصى 15 حرف"
+
+#: .\auth\forms.py:85
+msgid "This value may contain only letters, numbers and underscore"
+msgstr "اسم المستخدم يجب ان يتكون من حروف او ارقام او _ وبحد اقصى 15 حرف"
+
+#: .\auth\forms.py:87
+msgid ""
+"Raw passwords are not stored, so there is no way to see this user's "
+"password, but you can change the password using <a href=\"password/\">this "
+"form</a>."
+msgstr ""
+
+#: .\auth\forms.py:117
+msgid "Password (again)"
+msgstr "تأكيد كلمة السر"
+
+#: .\auth\forms.py:161
+#, fuzzy
+msgid "New password"
+msgstr "كلمة السر"
+
+#: .\auth\forms.py:163
+#, fuzzy
+msgid "New password confirmation"
+msgstr "تأكيد كلمة السر"
+
+#: .\auth\models.py:54
+msgid "username"
+msgstr "اسم المستخدم"
+
+#: .\auth\models.py:59
+msgid "first name"
+msgstr "الاسم الاول"
+
+#: .\auth\models.py:60
+msgid "last name"
+msgstr "الاسم الاخير"
+
+#: .\auth\models.py:61
+msgid "email address"
+msgstr "البريد الالكتروني"
+
+#: .\auth\models.py:62
+msgid "staff status"
+msgstr ""
+
+#: .\auth\models.py:63
+msgid "Designates whether the user can log into this admin site."
+msgstr ""
+
+#: .\auth\models.py:65
+msgid "active"
+msgstr "نشط"
+
+#: .\auth\models.py:66
+msgid ""
+"Designates whether this user should be treated as active. Unselect this "
+"instead of deleting accounts."
+msgstr ""
+
+#: .\auth\models.py:68
+msgid "date joined"
+msgstr ""
+
+#: .\auth\models.py:76
+msgid "user"
+msgstr ""
+
+#: .\auth\models.py:77
+msgid "users"
+msgstr ""
+
+#: .\auth\models.py:119
+msgid "Inactive"
+msgstr "غير نشط"
+
+#: .\dwwen_web\forms.py:9 .\dwwen_web\forms.py:41
+msgid "Name"
+msgstr "الاسم"
+
+#: .\dwwen_web\forms.py:10
+msgid "Blog URL"
+msgstr "عنوان URL"
+
+#: .\dwwen_web\forms.py:11
+msgid "RSS URL"
+msgstr "عنوان RSS"
+
+#: .\dwwen_web\forms.py:12
+msgid "Description"
+msgstr "الوصف"
+
+#: .\dwwen_web\forms.py:13
+msgid "Country"
+msgstr "الدولة"
+
+#: .\dwwen_web\forms.py:14
+msgid "Image"
+msgstr "الصورة"
+
+#: .\dwwen_web\forms.py:15
+msgid "Categories"
+msgstr "تصنيفات"
+
+#: .\dwwen_web\forms.py:42
+msgid "Blog name as currently registered in Dwwen"
+msgstr "اسم المدونة المسجل حاليا في دون"
+
+#: .\dwwen_web\forms.py:43
+#, fuzzy
+msgid "URL"
+msgstr "عنوان RSS"
+
+#: .\dwwen_web\forms.py:44
+msgid "You can enter search by part of the url, like domain"
+msgstr "يمكنك البحث بكامل الرابط او جزء منه"
+
+#: .\dwwen_web\forms.py:49
+msgid "At least one search criteria must be provided"
+msgstr "يجب ادخال احدى محددات البحث"
+
+#: .\dwwen_web\views.py:101
+msgid "You claim was created successfully"
+msgstr "تم انشاء المطالبة بنجاح"
+
+#: .\dwwen_web\views.py:104
+msgid "Could not create your claim, please try again later"
+msgstr "لم نتمكن من انشاء المطالبة، الرجاء المحاولة لاحقا"
+
+#: .\dwwen_web\views.py:124
+msgid "Could not load your claims, please try again later."
+msgstr "لم نتمكن من العثور على مطالباتك السابقة. الرجاء المحاولة لاحقا"
+
+#: .\dwwen_web\views.py:147
+msgid "Blog ownership was verified successfully."
+msgstr "تم عملية التحقق من ملكية المدونة بنجاح"
+
+#: .\dwwen_web\views.py:149
+msgid "Error verifying blog"
+msgstr "لم نتمكن من التحقق"
+
+#: .\rest_framework\fields.py:115
+msgid ""
+" Hold down \"Control\", or \"Command\" on a Mac, to select more than one."
+msgstr ""
+
+#: .\rest_framework\fields.py:261
+msgid "This field is required."
+msgstr "هذا الحقل اجباري"
+
+#: .\rest_framework\fields.py:262 .\rest_framework\relations.py:281
+msgid "Invalid value."
+msgstr "قيمة غير صالحة"
+
+#: .\rest_framework\fields.py:438
+#, python-format
+msgid "'%s' value must be either True or False."
+msgstr "'%s' يجب ام يكون True او False"
+
+#: .\rest_framework\fields.py:500
+#, fuzzy
+msgid ""
+"Enter a valid 'slug' consisting of letters, numbers, underscores or hyphens."
+msgstr ""
+
+#: .\rest_framework\fields.py:515
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr "اختر احدى الخيارات الموجودة، %(value)s ليس احدى الخيارات المتاحة"
+
+#: .\rest_framework\fields.py:582
+#, fuzzy
+msgid "Enter a valid email address."
+msgstr "ادخل بريد الكتروني صحيح"
+
+#: .\rest_framework\fields.py:624
+#, python-format
+msgid "Date has wrong format. Use one of these formats instead: %s"
+msgstr "صيغة التاريخ غير صحيحة. استخدم هذه الصيغة بدلا عن تلك: %s"
+
+#: .\rest_framework\fields.py:688
+#, python-format
+msgid "Datetime has wrong format. Use one of these formats instead: %s"
+msgstr "صيغة التاريخ والوقت غير صحيحة. استخدم هذه الصيغة بدلا عن تلك: %s"
+
+#: .\rest_framework\fields.py:758
+#, python-format
+msgid "Time has wrong format. Use one of these formats instead: %s"
+msgstr "صيغة الوقت غير صحيحة. استخدم هذه الصيغة بدلا عن تلك: %s"
+
+#: .\rest_framework\fields.py:815
+#, fuzzy
+msgid "Enter a whole number."
+msgstr "ادخل رقما بدون كسور"
+
+#: .\rest_framework\fields.py:816 .\rest_framework\fields.py:869
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr "تأكد ان هذه القيمة اصغر من او مساوية لـ %(limit_value)s"
+
+#: .\rest_framework\fields.py:817 .\rest_framework\fields.py:870
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr "تأكد ان هذه القيمة اكبر من او مساوية لـ %(limit_value)s"
+
+#: .\rest_framework\fields.py:847
+#, python-format
+msgid "'%s' value must be a float."
+msgstr ""
+
+#: .\rest_framework\fields.py:868
+#, fuzzy
+msgid "Enter a number."
+msgstr "ادخل رقما"
+
+#: .\rest_framework\fields.py:871
+#, python-format
+msgid "Ensure that there are no more than %s digits in total."
+msgstr "تأكد من عدم وجود اكثر من %s ارقام كمجموع"
+
+#: .\rest_framework\fields.py:872
+#, python-format
+msgid "Ensure that there are no more than %s decimal places."
+msgstr "تأكد من عدم وجود اكثر من %s خانات عشرية"
+
+#: .\rest_framework\fields.py:873
+#, python-format
+msgid "Ensure that there are no more than %s digits before the decimal point."
+msgstr "تأكد من عدم وجود اكثر من %s قبل الفاصلة العشرية"
+
+#: .\rest_framework\fields.py:940
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr "لم يأتينا أي ملف. تأكد من نوع الترميز المدون على النموذج"
+
+#: .\rest_framework\fields.py:941
+msgid "No file was submitted."
+msgstr "لم يتم ارسال اي ملف"
+
+#: .\rest_framework\fields.py:942
+msgid "The submitted file is empty."
+msgstr "الملف المرفوع فارغ"
+
+#: .\rest_framework\fields.py:943
+#, python-format
+msgid ""
+"Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr ""
+
+#: .\rest_framework\fields.py:944
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr "الرجاء رفع ملف او اختيار ازالة ولكن ليس الاثنين"
+
+#: .\rest_framework\fields.py:984
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a "
+"corrupted image."
+msgstr "ارفع ملف صورة. الملف الذي قمت برفعه ليس صورة او انه فاسد"
+
+#: .\rest_framework\generics.py:163
+msgid "Page is not 'last', nor can it be converted to an int."
+msgstr "رقم الصفحة ليس last كما لا يمكن تحويله لرقم."
+
+#: .\rest_framework\relations.py:192
+#, python-format
+msgid "Invalid pk '%s' - object does not exist."
+msgstr "رقم تعريف pk '%s' لا يتوافق مع اي شيء لدينا"
+
+#: .\rest_framework\relations.py:193
+#, python-format
+msgid "Incorrect type.  Expected pk value, received %s."
+msgstr "توقعنا من رقم تعريف pk لكن هذا ما جئتنا به: %s."
+
+#: .\rest_framework\relations.py:280
+#, python-format
+msgid "Object with %s=%s does not exist."
+msgstr "لا يوجد لدينا شيء يحقق %s=%s"
+
+#: .\rest_framework\relations.py:316
+msgid "Invalid hyperlink - No URL match"
+msgstr "الرابط غير صالح ولا يتوافق مع اي تعريف"
+
+#: .\rest_framework\relations.py:317
+msgid "Invalid hyperlink - Incorrect URL match"
+msgstr "الرابط غير صالح ولا يتوافق مع ما وجدناه عندنا"
+
+#: .\rest_framework\relations.py:318
+msgid "Invalid hyperlink due to configuration error"
+msgstr "الرابط غير صحيح لانه واحد من الشباب جاب العيد"
+
+#: .\rest_framework\relations.py:319
+msgid "Invalid hyperlink - object does not exist."
+msgstr "الرابط غير صالح. لايوجد شيء هناك"
+
+#: .\rest_framework\relations.py:320
+#, python-format
+msgid "Incorrect type.  Expected url string, received %s."
+msgstr "توقعنا ان نحصل منك على رابط ولكن هذا ما جئتنا به %s"
+
+#: .\rest_framework\authtoken\serializers.py:20
+msgid "User account is disabled."
+msgstr ""
+
+#: .\rest_framework\authtoken\serializers.py:25
+msgid "Unable to login with provided credentials."
+msgstr ""
+
+#: .\rest_framework\authtoken\serializers.py:28
+msgid "Must include \"username\" and \"password\""
+msgstr ""
+
+#: .\templates\accounts\password_reset_confirm.html:30
+msgid "Password reset failed"
+msgstr "لايمكن اعادة ضبط كلمة السر. الرابط غير صالح للاستخدام."
+
+msgid "This URL doesn't point to a valid xml feed resource"
+msgstr "هذا الرابط لا يشير الى  مصدر خلاصات RSS صحيح"
+
+msgid "These words are not allowed in a username: %(banned)s"
+msgstr "اسم المستخدم يجب ان لا يحتوي على اي من الكلمات التالية: %(banned)s"
+
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr "قيمة الحقل %(field_label)s موجودة مسبقاً."
+
+msgid "URL already exists."
+msgstr "هذا العنوان موجود مسبقاً."
+
+msgid "Title"
+msgstr "العنوان"
+
+msgid "Post"
+msgstr "التدوينة"
+
+msgid "Blog was updated successfully"
+msgstr "تم تعديل المدونة بنجاح"
+
+msgid "You can create only one blog."
+msgstr "يمكنك انشاء مدونة واحدة فقط."
+
+msgid "Blog was created successfully."
+msgstr "تم انشاء المدونة بنجاح"
+
+msgid "Post was created successfully."
+msgstr "تم انشاء التدوينة بنجاح"
+
+msgid "Post was updated successfully."
+msgstr "تم تعديل التدوينة بنجاح"
+
+msgid "Post was deleted successfully."
+msgstr "تم حذف التدوينة بنجاح"
+
+msgid "Post was published successfully."
+msgstr "تم نشر التدوينة بنجاح"
+
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural "هذا الحقل يجب ان يتكون من %(limit_value)d أحرف على الاقل. الآن يتكون من %(show_value)d"
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] "هذا الحقل يجب ان يتكون من %(limit_value)d أحرف على الاقل. الآن يتكون من %(show_value)d"
+msgstr[1] "هذا الحقل يجب ان يتكون من %(limit_value)d أحرف على الاقل. الآن يتكون من %(show_value)d"
+msgstr[2] "هذا الحقل يجب ان يتكون من %(limit_value)d أحرف على الاقل. الآن يتكون من %(show_value)d"
+msgstr[3] "هذا الحقل يجب ان يتكون من %(limit_value)d أحرف على الاقل. الآن يتكون من %(show_value)d"
+msgstr[4] "هذا الحقل يجب ان يتكون من %(limit_value)d أحرف على الاقل. الآن يتكون من %(show_value)d"
+msgstr[5] "هذا الحقل يجب ان يتكون من %(limit_value)d أحرف على الاقل. الآن يتكون من %(show_value)d"

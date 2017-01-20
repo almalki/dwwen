@@ -1,0 +1,99 @@
+{% extends request.user.is_authenticated|yesno:"base.html,blog/blog-public-base.html" %}
+
+{% load url from future %}
+{% load bootstrap3 %}
+{% load i18n %}
+{% load thumbnail %}
+{% load markdown_deux_tags %}
+
+{% block head_title %}{{ post.blog.name }}{% endblock %}
+
+{% block top_nav_my_blog %}active{% endblock %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-md-2">
+            {% if post.blog.image %}
+                {% thumbnail post.blog.image "130x130" format="PNG" as im %}
+                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                {% endthumbnail %}
+            {% endif %}
+</div>
+  <div class="col-md-8">
+          <a href="{% url 'web-blog' username=post.blog.user.username %}">
+                <h1>{{ post.blog.name }}</h1>
+              </a>
+            <p>{{ post.blog.description }}</p>
+</div>
+</div>
+     <hr/>
+
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+
+        {% bootstrap_messages %}
+
+          <article class="post">
+          <header>
+                  <h2>{{ post.title }}</h2>
+          </header>
+          <section>
+              <div class="post-actions">
+                  {% if post.status == post.DRAFT %}
+                      <span class="status label label-warning">مسودة</span>
+                  {% endif %}
+              {% if is_owner %}
+                    <a href="{% url 'web-post-update' pk=post.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a href="#" data-toggle="modal" data-target="#confirm-delete-{{ post.id }}"><span class="glyphicon glyphicon-trash"></span></a>
+                  {% if post.status == post.DRAFT %}
+                  <form action="{% url 'web-post-publish' pk=post.id %}" method="post">
+                    <a href="#" onclick="$(this).closest('form').submit()"><span class="glyphicon glyphicon-share"></span></a>
+                    {% csrf_token %}
+                  </form>
+                  {% endif %}
+              {% endif %}
+                  {% if post.status != post.DRAFT %}
+                      <span class="text-muted"><small>{{ post.published_date }}</small></span>
+                  {% endif %}
+              </div>
+            {% if post.image %}
+                <div>
+                    <img class="img-responsive center-block" src="{{ post.image.url }}" />
+                </div>
+            {% endif %}
+              <div class="post-body">{{ post.markdown|markdown }}</div>
+
+                <div class="modal fade" id="confirm-delete-{{ post.id }}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">
+                              <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                              <h4 class="modal-title">حذف التدوينة؟</h4>
+                          </div>
+                        <div class="modal-body">
+                            <p>
+                      هل انت متأكد من انك تريد حذف التدوينة؟
+                            </p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">الغاء</button>
+                       <form action="{% url 'web-post-delete'  pk=post.id %}" method="post">
+                          <a href="#" onclick="$(this).closest('form').submit()" class="btn btn-primary">نعم، احذف  التدوينة</a>
+                          {% csrf_token %}
+                       </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </section>
+          </article>
+
+    </div>
+      <div class="col-md-2">
+      </div>
+</div>
+{% endblock %}

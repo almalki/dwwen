@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% load url from future %}
+{% load bootstrap3 %}
+{% load i18n %}
+
+{% block head_title %}مدونات{% endblock %}
+
+{% block top_nav_blogs %}active{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-8">
+
+          <h1>مدونات</h1>
+        <p>هذه الصفحة مخصصىة لإضافة وادارة المدونات الخارجية والتي تحوي على ملخصات RSS
+سواء كانت مدونتك الخاصة او اي مدونة ترغب في متابعتها ولم تتم اضافتها مسبقا. اذا لم يكن لديك مدونة،
+        <a href="{% url 'web-blog-create' %}">قم بإنشاء مدونتك الآن من هنا</a>.
+        </p>
+        <br/>
+        {% if is_paginated %}
+        <ul class="pagination pagination-centered">
+            {% if page_obj.has_previous %}
+                <li><a href="?page=1"><<</a></li>
+                <li><a href="?page={{ page_obj.previous_page_number }}"><</a></li>
+            {% endif %}
+
+            {% for i in paginator.page_range %}
+                <li {% if page_obj.number == i %} class="active" {% endif %}><a href="?page={{i}}">{{i}}</a></li>
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}">></a></li>
+                <li><a href="?page={{ page_obj.paginator.num_pages }}">>></a></li>
+            {% endif %}
+        </ul>
+    {% endif %}
+
+        <table class="table table-hover">
+             <tr>
+                 <th>الاسم</th>
+                 <th>العنوان</th>
+                 <th></th>
+             </tr>
+            {% for blog in object_list %}
+                <tr>
+                    <td><a href="{% url 'web-blog-detail' pk=blog.id %}">{{ blog.name }}</a></td>
+                    <td  dir="ltr" style="text-align: right">{{ blog.blog_url }}</td>
+                    <td><a href="{% url 'web-blog-update' pk=blog.id %}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+  <div class="col-md-3">
+        <a href="{% url 'web-blog-add' %}" class="btn btn-primary">إضافة مدونة</a>
+        <p>يمكنك اضافة مدونتك او اي مدونة ترغب في متابعتها ولم تتم اضافتها مسبقا</p>
+        <p>اذا كانت مدونتك قد اضيفت سابقا لدوّن ولكن لا تظهر في هذه القائمة، وكنت ترغب في التحكم بها قم
+            <a href="{% url 'web-blog-claim' %}"> بإنشاء مطالبة هنا</a>
+        </p>
+</div>
+</div>
+{% endblock %}
